@@ -2,20 +2,83 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 class User(db.Model):
+
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    username = db.Column(db.String(30), unique=True, nullable=False)
+
+    email = db.Column(
+        db.String(100),
+        unique=True,
+        nullable=False
+    )
+
+    username = db.Column(
+        db.String(30),
+        unique=True,
+        nullable=False
+    )
+
     full_name = db.Column(db.String(100))
-    password = db.Column(db.String(200), nullable=False)
-    birthday = db.Column(db.String(20))
-    posts = db.relationship("Post", backref="user", lazy=True)
 
     
+    display_name = db.Column(db.String(100))
+
+    
+    avatar = db.Column(db.String(500))
+
+    
+    is_verified = db.Column(
+        db.Boolean,
+        default=False
+    )
+
+    password = db.Column(
+        db.String(200),
+        nullable=False
+    )
+
+    birthday = db.Column(db.String(20))
+
+    posts = db.relationship(
+        "Post",
+        backref="user",
+        lazy=True
+    )
+
+
 class Post(db.Model):
+
     id = db.Column(db.Integer, primary_key=True)
-    image_url = db.Column(db.String(500), nullable=False)
+
+    image_url = db.Column(
+        db.String(500),
+        nullable=False
+    )
+
     public_id = db.Column(db.String(300))
+
     caption = db.Column(db.Text)
-    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+
+    
+    likes = db.Column(
+        db.Integer,
+        default=0
+    )
+
+    
+    comments = db.Column(
+        db.Integer,
+        default=0
+    )
+
+    created_at = db.Column(
+        db.DateTime,
+        default=db.func.current_timestamp()
+    )
+
+    user_id = db.Column(
+        db.Integer,
+        db.ForeignKey("user.id"),
+        nullable=False
+    )

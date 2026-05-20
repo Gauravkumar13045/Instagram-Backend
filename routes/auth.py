@@ -3,6 +3,8 @@ from models import db, User
 import jwt
 import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
+import random
+
 
 
 auth = Blueprint("auth", __name__)
@@ -25,12 +27,16 @@ def signup():
     if User.query.filter_by(username=username).first():
         return jsonify({"error": "Username taken"}), 400
     
+    avatar = f"https://picsum.photos/id/{random.randint(1,1084)}/200/200"
+    
+    
     user = User(
         email=email,
         username=username,
         full_name=data.get("fullName"),
         password=generate_password_hash(password), 
-        birthday=data.get("birthday")
+        birthday=data.get("birthday"),
+        avatar=avatar
     )
 
     db.session.add(user)
@@ -42,7 +48,9 @@ def signup():
         "message": "Account created Successfully!! ",
         "user": {
             "username": user.username,
-            "email": user.email
+            "email": user.email,
+            "fullName": user.full_name,
+            "avatar": user.avatar
         }
     })
 
@@ -107,7 +115,10 @@ def profile():
 
         return jsonify({
             "username": user.username,
-            "email": user.email
+            "email": user.email,
+            "fullName": user.full_name,
+            "avatar": user.avatar          
+
         })
 
     except:
