@@ -32,9 +32,11 @@ def get_posts():
     if not token:
         return jsonify({"error": "Unauthorized"}), 401
 
-    posts = Post.query.order_by(
-        Post.created_at.desc()
-    ).all()
+    posts = Post.query.filter(
+    Post.user_id.isnot(None)
+).order_by(
+    Post.created_at.desc()
+).all()
 
     return jsonify({
         "posts": [
