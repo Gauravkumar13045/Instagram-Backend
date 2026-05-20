@@ -1,0 +1,29 @@
+{
+    "suggestion": [
+        {
+            "username": "sachi_pallov_01",
+            "SuggestionImage": "https://picsum.photos/id/1011/200/200",
+            "IsFollowing": "Followed by pallavi__raj + 1 more"
+        },
+        {
+            "username": "tech_guru_99",
+            "SuggestionImage": "https://picsum.photos/id/1025/200/200",
+            "IsFollowing": "Followed by ruchi_kumari + "
+        },
+        {
+            "username": "creative_minds_07",
+            "SuggestionImage": "https://picsum.photos/id/1005/200/200",
+            "IsFollowing": "Suggested for you"
+        },
+        {
+            "username": "fitness_freak_21",
+            "SuggestionImage": "https://picsum.photos/id/1012/200/200",
+            "IsFollowing": "Followed by Chaitanya_Raj6512"
+        },
+        {
+            "username": "travel_diaries_15",
+            "SuggestionImage": "https://picsum.photos/id/1035/200/200",
+            "IsFollowing": "Suggested for you"
+        }
+    ]
+}
