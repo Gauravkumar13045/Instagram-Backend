@@ -22,6 +22,9 @@ CORS(
 
 db.init_app(app)
 
+with app.app_context():
+    db.create_all()
+
 app.register_blueprint(auth)
 app.register_blueprint(post_bp)
 

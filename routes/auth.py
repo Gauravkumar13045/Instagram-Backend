@@ -95,7 +95,7 @@ def signin():
         samesite="None",     
         secure=False,        
         path="/",
-        max_age=60*60*24
+        max_age=60*60*24  
     )
 
     
