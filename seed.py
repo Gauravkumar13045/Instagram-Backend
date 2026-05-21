@@ -2,6 +2,7 @@ from app import app
 from models import db, User, Post
 import json
 import random
+from werkzeug.security import generate_password_hash
 
 with app.app_context():
 
@@ -35,9 +36,9 @@ with app.app_context():
 
                 email=f'{item["username"]}@gmail.com',
 
-                password="12345678",
+                password=generate_password_hash("12345678"),
 
-                birthday="2000-01-01"
+                birthday=f"{random.randint(1950, 2005)}-{random.randint(1,12):02d}-{random.randint(1,28):02d}"
             )
 
             db.session.add(new_user)
