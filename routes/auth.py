@@ -127,9 +127,19 @@ def profile():
 
 @auth.route('/logout', methods=["POST"])
 def logout():
-   response = make_response(jsonify({"message": "Logged Out Successfully"}))
-   response.set_cookie("token", "", expires=0, path="/")
-   return response
+
+    response = make_response(
+        jsonify({"message": "Logged Out Successfully"})
+    )
+
+    response.delete_cookie(
+        "token",
+        path="/",
+        samesite="None",
+        secure=True
+    )
+
+    return response
    
    
    
