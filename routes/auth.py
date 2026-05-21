@@ -93,7 +93,7 @@ def signin():
         token,
         httponly=True,
         samesite="None",     
-        secure=False,        
+        secure=True,        
         path="/",
         max_age=60*60*24  
     )
