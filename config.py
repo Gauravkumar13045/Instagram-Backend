@@ -9,14 +9,6 @@ class Config:
 
     SECRET_KEY = os.getenv("SECRET_KEY")
 
-    if os.environ.get("RENDER"):
-
-        SQLALCHEMY_DATABASE_URI = "sqlite:////var/data/users.db"
-
-    else:
-
-        db_path = os.path.join(BASE_DIR, "instance", "users.db")
-
-        SQLALCHEMY_DATABASE_URI = f"sqlite:///{db_path}"
+    SQLALCHEMY_DATABASE_URI = "sqlite:///users.db"
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
