@@ -14,7 +14,7 @@ app.config.from_object(Config)
 CORS(
     app,
     supports_credentials=True,
-    origins=["http://localhost:5173", "http://127.0.0.1:5173", "https://kz9sppkz-5173.inc1.devtunnels.ms"],
+    origins=["http://localhost:5173", "http://127.0.0.1:5173", "https://kz9sppkz-5173.inc1.devtunnels.ms", "https://instagram-frontend-smoky.vercel.app"],
     allow_headers=["Content-Type", "Authorization"],
     methods=["GET", "POST", "OPTIONS"],
     expose_headers=["Set-Cookie"]
